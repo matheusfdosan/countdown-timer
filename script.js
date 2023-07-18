@@ -1,9 +1,20 @@
-const timerSpan = document.querySelector(".time span")
+const timerDays = document.querySelector(
+  "div.left-side > div > div.days > span.time"
+)
+const timerHours = document.querySelector(
+  "div.left-side > div > div.hours > span.time"
+)
+const timerMinutes = document.querySelector(
+  "div.left-side > div > div.minutes > span.time"
+)
+const timerSeconds = document.querySelector(
+  "div.left-side > div > div.seconds > span.time"
+)
 
-let days = 08,
-  hours = 12,
-  minutes = 44,
-  seconds = 28
+let days = 8
+let hours = 12
+let minutes = 44
+let seconds = 28
 
 const countdown = setInterval(() => {
   seconds--
@@ -24,14 +35,15 @@ const countdown = setInterval(() => {
   let minute = minutes < 10 ? "0" + minutes : minutes
   let second = seconds < 10 ? "0" + seconds : seconds
 
-  timerSpan.textContent = `${day} : ${hour} : ${minute} : ${second}`
+  timerDays.textContent = day
+  timerHours.textContent = hour
+  timerMinutes.textContent = minute
+  timerSeconds.textContent = second
 
   if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
-    timerSpan.textContent = "Finished"
-    timerSpan.style.color = "#6c63ff"
-
-    document.querySelector(".time ul").remove()
-
     clearInterval(countdown)
+    document.querySelector(".timer").innerHTML = ""
+
+    document.querySelector(".time-is-up").style.display = "block"
   }
 }, 1000)

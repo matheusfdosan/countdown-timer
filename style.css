@@ -1,3 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+  font-size: 62.5%;
+  /* Para cada 1rem no código abaixo, será considerado 10px */
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 1.6rem;
+  /* 1.6rem = 16px */
+}
+
 :root {
   --black: #4d4c59;
   --purple: #6c63ff;
@@ -5,100 +30,128 @@
   --text-color: #9c9ab6;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-.bottom-image,
-.top-image {
-  position: absolute;
-  z-index: -1;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.top-image {
-  top: 0;
-}
-
-.bottom-image {
-  bottom: 0;
-}
-
 .container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+  height: 100%;
+  width: 90%;
+  max-width: 1000px;
   margin: auto;
-  width: fit-content;
-  margin-top: 150px;
+  position: relative;
+  z-index: 9999;
 }
 
-.timer {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  align-items: center;
+.left-side {
+  flex: 1;
 }
 
-.timer h1 {
-  text-transform: uppercase;
+.left-side h1 {
   color: var(--purple);
-  letter-spacing: 0.105em;
-  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.time {
+.left-side .timer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.left-side .timer div {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.time ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
+  gap: 10px;
+  font-size: 1.6rem;
   color: var(--text-color);
-  font-weight: 300;
-  font-size: 14px;
-  width: 100%;
 }
 
-.time ul li:nth-child(1),
-.time ul li:nth-child(2) {
-  margin-right: 103px;
+.left-side .timer div span {
+  color: var(--light-grey);
 }
 
-.time ul li:nth-child(3) {
-  margin-right: 77px;
-}
-
-.time span {
-  font-size: 72px;
+.left-side .timer div span:nth-child(2) {
+  font-size: 6.4rem;
   color: var(--black);
 }
 
-.timer p {
+.left-side p {
   text-align: center;
-  color: var(--text-color);
+  color: var(--light-grey);
 }
 
-.timer button {
-  border-radius: 5px;
-  border: none;
-  background: var(--purple);
+.left-side button {
+  padding: 15px 30px;
+  background-color: var(--purple);
   color: #fff;
-  padding: 16px 32px;
-  font-size: 1rem;
+  border-radius: 10px;
+  display: block;
+  margin: 20px auto;
+  border: none;
+  font-size: 1.6rem;
   transition: transform 200ms ease;
-}
-
-.timer button:hover {
-  transform: scale(1.1);
   cursor: pointer;
 }
 
-.timer button:active {
-  transform: scale(1);
+.left-side button:hover {
+  transform: scale(1.05);
+}
+
+.time-is-up {
+  display: none;
+  color: var(--purple);
+  font-size: 3.2rem;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+.right-side {
+  flex: 1;
+  height: fit-content;
+}
+
+.right-side img {
+  width: 100%;
+  height: auto;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+}
+
+.top-wave {
+  top: 0;
+}
+
+.bottom-wave {
+  bottom: 0;
+}
+
+
+
+@media (max-width: 950px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 770px) {
+  .container {
+    flex-direction: column;
+    padding: 40px 0;
+  }
+
+  .right-side img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 340px) {
+  html {
+    font-size: 40%;
+  }
 }
