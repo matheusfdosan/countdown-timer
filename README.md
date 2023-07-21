@@ -1,7 +1,7 @@
 <h1 align="center"> Desafio Countdown by Rocketseat</h1>
 
 <p align="center">
-Neste desafio você vai construir um countdown timer.
+Um countdown timer
 </p>
 
 <p align="center">
